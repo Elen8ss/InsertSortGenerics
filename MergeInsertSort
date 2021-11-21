@@ -16,8 +16,8 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
-            intercalar(vetor, auxiliar, inicio, meio, fim);
             if (fim - inicio > 13) {
+                intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);
             }
