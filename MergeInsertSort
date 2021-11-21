@@ -16,8 +16,8 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
             mergeInsertSort(vetor, auxiliar, inicio, meio); 
             mergeInsertSort(vetor, auxiliar, meio+1, fim); 
 	    
+            intercalar(vetor, auxiliar, inicio, meio, fim);
             if (fim - inicio > 13) {
-                intercalar(vetor, auxiliar, inicio, meio, fim);
             } else {
                 insertSort(vetor, inicio, fim);
             }
@@ -60,11 +60,11 @@ public class MergeInsert <T extends Comparable<? super T>> implements StrategeyS
     private static <T extends Comparable<? super T>> void insertSort(T[] array, int inicio, int fim) {
         T aux;
         
-        for (int i=inicio+1; i < fim; i++){
+        for (int i=inicio+1; i <= fim; i++){
             aux = array[i]; 
             
 	        int j = i-1; 
-            while (j >= 0 && array[j].compareTo(aux) > 0){ 
+            while (j >= inicio && array[j].compareTo(aux) > 0){ 
                 array[j+1] = array[j]; 
                 j--;
             }
